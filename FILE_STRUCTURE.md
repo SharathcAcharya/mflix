@@ -1,4 +1,4 @@
-# 📂 MFlix Project - File Structure
+# 📂 ScreenPlex Project - File Structure
 
 ## Frontend Files Created/Modified
 
@@ -55,7 +55,7 @@
 ## Complete Directory Structure
 
 ```
-mflix/
+screenplex/
 │
 ├── public/                          # Static files (existing)
 │   ├── index.html

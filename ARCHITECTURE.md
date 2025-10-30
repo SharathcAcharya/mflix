@@ -1,4 +1,4 @@
-# 🏗️ MFlix Architecture Diagram
+# 🏗️ ScreenPlex Architecture Diagram
 
 ## System Architecture Overview
 

@@ -1,4 +1,4 @@
-# ✅ MFlix Setup Checklist
+# ✅ ScreenPlex Setup Checklist
 
 ## Pre-Setup Requirements
 
@@ -10,7 +10,7 @@
 ## 1️⃣ Google Cloud Console Setup
 
 - [ ] Visit [Google Cloud Console](https://console.cloud.google.com/)
-- [ ] Create new project "MFlix"
+- [ ] Create new project "ScreenPlex"
 - [ ] Enable Google+ API
 - [ ] Create OAuth 2.0 Client ID
 - [ ] Add authorized origins: `http://localhost:3000`
@@ -57,7 +57,7 @@
 
 ### Test Landing Page
 - [ ] Visit http://localhost:3000
-- [ ] See MFlix landing page
+- [ ] See ScreenPlex landing page
 - [ ] Click "Sign In" button
 
 ### Test Traditional Signup
@@ -199,6 +199,6 @@ Check logs:
 
 ## 🚀 You're All Set!
 
-Once all items are checked, your MFlix application is ready to use!
+Once all items are checked, your ScreenPlex application is ready to use!
 
 Enjoy building your Netflix clone! 🎬🍿

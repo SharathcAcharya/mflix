@@ -1,4 +1,4 @@
-# 🎬 MFlix Netflix Features Upgrade Plan
+# 🎬 ScreenPlex Netflix Features Upgrade Plan
 
 ## 📊 Current State Analysis
 
@@ -479,4 +479,4 @@ etc.
 
 ---
 
-**Ready to make MFlix feel like the real Netflix? Let's start building! 🚀**
+**Ready to make ScreenPlex feel like the real Netflix? Let's start building! 🚀**

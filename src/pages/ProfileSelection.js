@@ -102,7 +102,7 @@ const ProfileSelection = () => {
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4 md:p-8">
       {/* Logo */}
       <div className="absolute top-8 left-8">
-        <h1 className="text-netflix-red text-3xl md:text-4xl font-bold">MFLIX</h1>
+        <h1 className="text-netflix-red text-3xl md:text-4xl font-bold">SCREENPLEX</h1>
       </div>
 
       <div className="max-w-6xl w-full">

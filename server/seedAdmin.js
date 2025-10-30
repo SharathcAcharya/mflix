@@ -29,7 +29,7 @@ const createSuperAdmin = async () => {
     
     const superAdmin = new Admin({
       username: 'superadmin',
-      email: 'admin@mflix.com',
+      email: 'admin@screenplex.com',
       password: hashedPassword,
       fullName: 'Super Administrator',
       role: 'super-admin',
@@ -51,7 +51,7 @@ const createSuperAdmin = async () => {
     console.log('URL:      http://localhost:3000/admin-panel/login');
     console.log('Username: superadmin');
     console.log('Password: Admin@123');
-    console.log('Email:    admin@mflix.com');
+    console.log('Email:    admin@screenplex.com');
     console.log('Role:     super-admin');
     console.log('═══════════════════════════════════════');
     console.log('⚠️  Please change the password after first login!');

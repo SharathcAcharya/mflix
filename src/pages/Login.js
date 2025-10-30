@@ -60,7 +60,7 @@ const Login = () => {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 md:px-16 py-6">
         <Link to="/" className="text-netflix-red text-4xl md:text-5xl font-black tracking-tight hover:scale-105 transition-transform">
-          MFLIX
+          SCREENPLEX
         </Link>
       </header>
       
@@ -147,7 +147,7 @@ const Login = () => {
         </div>
         
         <div className="mt-8 text-center text-gray-400">
-          <span>New to MFlix? </span>
+          <span>New to ScreenPlex? </span>
           <Link to="/signup" className="text-white hover:underline font-semibold hover:text-netflix-red transition-colors">
             Sign up now
           </Link>

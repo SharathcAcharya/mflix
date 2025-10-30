@@ -1,4 +1,4 @@
-# 🛠️ MFlix - Helpful Commands Reference
+# 🛠️ ScreenPlex - Helpful Commands Reference
 
 ## Frontend Commands (Root Directory)
 
@@ -97,7 +97,7 @@ git init
 git add .
 
 # Commit
-git commit -m "Initial commit: MFlix Netflix Clone"
+git commit -m "Initial commit: ScreenPlex Netflix Clone"
 
 # Add remote
 git remote add origin <your-repo-url>

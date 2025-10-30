@@ -12,7 +12,7 @@ const RecentlyAddedRow = ({ movies }) => {
     <div className="mb-8">
       <div className="flex items-center justify-between px-4 md:px-8 mb-4">
         <h2 className="text-2xl font-bold">Recently Added</h2>
-        <span className="text-sm text-gray-400">New on MFlix</span>
+        <span className="text-sm text-gray-400">New on ScreenPlex</span>
       </div>
       
       <div className="relative px-4 md:px-8">

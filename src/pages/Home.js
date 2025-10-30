@@ -75,24 +75,24 @@ const Home = () => {
 
   const faqs = [
     {
-      question: 'What is MFlix?',
-      answer: 'MFlix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.'
+      question: 'What is ScreenPlex?',
+      answer: 'ScreenPlex is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.'
     },
     {
-      question: 'How much does MFlix cost?',
-      answer: 'Watch MFlix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from $8.99 to $17.99 a month. No extra costs, no contracts.'
+      question: 'How much does ScreenPlex cost?',
+      answer: 'Watch ScreenPlex on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from $8.99 to $17.99 a month. No extra costs, no contracts.'
     },
     {
       question: 'Where can I watch?',
-      answer: 'Watch anywhere, anytime. Sign in with your MFlix account to watch instantly on the web at mflix.com from your personal computer or on any internet-connected device that offers the MFlix app.'
+      answer: 'Watch anywhere, anytime. Sign in with your ScreenPlex account to watch instantly on the web at screenplex.com from your personal computer or on any internet-connected device that offers the ScreenPlex app.'
     },
     {
       question: 'How do I cancel?',
-      answer: 'MFlix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.'
+      answer: 'ScreenPlex is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.'
     },
     {
-      question: 'What can I watch on MFlix?',
-      answer: 'MFlix has an extensive library of feature films, documentaries, TV shows, anime, award-winning MFlix originals, and more. Watch as much as you want, anytime you want.'
+      question: 'What can I watch on ScreenPlex?',
+      answer: 'ScreenPlex has an extensive library of feature films, documentaries, TV shows, anime, award-winning ScreenPlex originals, and more. Watch as much as you want, anytime you want.'
     }
   ];
 
@@ -135,7 +135,7 @@ const Home = () => {
             to="/" 
             className="text-netflix-red text-4xl md:text-5xl font-black tracking-tight hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_25px_rgba(229,9,20,0.5)]"
           >
-            MFLIX
+            SCREENPLEX
           </Link>
           <div className="flex items-center space-x-4">
             <Link 
@@ -230,7 +230,7 @@ const Home = () => {
       <div className="bg-black py-20" id="features" data-animate>
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-16">
-            Why Choose <span className="text-netflix-red">MFlix</span>?
+            Why Choose <span className="text-netflix-red">ScreenPlex</span>?
           </h2>
           
           <div className="grid md:grid-cols-4 gap-6 mb-8">
@@ -432,7 +432,7 @@ const Home = () => {
             </div>
           </div>
           <div className="border-t border-gray-900 pt-8 text-center text-gray-500">
-            <p>&copy; 2025 MFlix. All rights reserved.</p>
+            <p>&copy; 2025 ScreenPlex. All rights reserved.</p>
           </div>
         </div>
       </footer>

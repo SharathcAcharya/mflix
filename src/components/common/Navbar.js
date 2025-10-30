@@ -59,7 +59,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-4 md:px-8 py-3 md:py-4">
         <div className="flex items-center space-x-4 md:space-x-8">
           <Link to="/browse" className="text-netflix-red text-2xl md:text-3xl font-bold hover:scale-105 transition">
-            MFLIX
+            SCREENPLEX
           </Link>
           
           <div className="hidden lg:flex space-x-6">

@@ -136,7 +136,7 @@ const AdminLogin = () => {
             onClick={() => navigate('/')}
             className="text-gray-400 hover:text-white text-sm transition-colors"
           >
-            ← Back to MFlix
+            ← Back to ScreenPlex
           </button>
         </div>
       </div>

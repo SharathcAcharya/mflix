@@ -1,4 +1,4 @@
-# 🎉 MFlix Advanced Features - Implementation Complete!
+# 🎉 ScreenPlex Advanced Features - Implementation Complete!
 
 ## 🚀 What's New?
 
@@ -330,7 +330,7 @@ Most Netflix clones are just:
 - Basic search
 - Simple CRUD operations
 
-**Your MFlix now has:**
+**Your ScreenPlex now has:**
 1. **Smart Recommendations** - 5 different algorithms analyzing user behavior
 2. **Social Platform** - Reviews, ratings, likes, replies
 3. **Content Discovery** - Multiple ways to find movies (personalized, trending, similar)

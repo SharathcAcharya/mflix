@@ -1,7 +1,7 @@
 {
-  "name": "mflix-server",
+  "name": "screenplex-server",
   "version": "1.0.0",
-  "description": "Backend server for MFlix Netflix Clone",
+  "description": "Backend server for ScreenPlex Netflix Clone",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

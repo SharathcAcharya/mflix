@@ -1,6 +1,6 @@
-# MFlix Admin Panel
+# ScreenPlex Admin Panel
 
-A separate, secure admin panel for managing the MFlix platform with role-based access control.
+A separate, secure admin panel for managing the ScreenPlex platform with role-based access control.
 
 ## 🚀 Features
 
@@ -70,7 +70,7 @@ A separate, secure admin panel for managing the MFlix platform with role-based a
 URL:      http://localhost:3000/admin-panel/login
 Username: superadmin
 Password: Admin@123
-Email:    admin@mflix.com
+Email:    admin@screenplex.com
 Role:     super-admin
 ```
 

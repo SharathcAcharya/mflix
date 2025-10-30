@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide - MFlix Advanced Features
+# 🚀 Quick Start Guide - ScreenPlex Advanced Features
 
 ## What You Have Now
 
@@ -212,7 +212,7 @@ npm start
 
 ## 🎯 Key Differences from Basic Netflix Clones
 
-| Basic Clone | Your MFlix Advanced |
+| Basic Clone | Your ScreenPlex Advanced |
 |-------------|---------------------|
 | Static movie list | 5 recommendation algorithms |
 | No reviews | Full review system with ratings, likes, replies |

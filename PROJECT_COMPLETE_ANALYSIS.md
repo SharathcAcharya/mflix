@@ -1,8 +1,8 @@
-# 🎬 MFlix - Complete Project Analysis & Netflix Features
+# 🎬 ScreenPlex - Complete Project Analysis & Netflix Features
 
 ## 📊 PROJECT OVERVIEW
 
-**MFlix** is a full-stack Netflix clone built with the MERN stack (MongoDB, Express, React, Node.js). The application now features professional-grade Netflix functionality including continue watching, genre browsing, and comprehensive recommendation systems.
+**ScreenPlex** is a full-stack Netflix clone built with the MERN stack (MongoDB, Express, React, Node.js). The application now features professional-grade Netflix functionality including continue watching, genre browsing, and comprehensive recommendation systems.
 
 ---
 
@@ -215,7 +215,7 @@ GET    /api/progress/stats/user               - Get watch stats
 ## 📂 COMPLETE FILE STRUCTURE
 
 ```
-mflix/
+screenplex/
 ├── public/
 │   ├── index.html
 │   ├── manifest.json
@@ -548,7 +548,7 @@ mflix/
 
 ## 🎬 CONCLUSION
 
-**MFlix is now a feature-rich Netflix clone with:**
+**ScreenPlex is now a feature-rich Netflix clone with:**
 
 ✅ **25+ Professional Features**
 ✅ **Modern Netflix-Style UI**

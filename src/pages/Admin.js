@@ -258,7 +258,7 @@ const Admin = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">Admin Dashboard</h1>
-          <p className="text-gray-400">Manage your MFlix platform</p>
+          <p className="text-gray-400">Manage your ScreenPlex platform</p>
         </div>
 
         {/* Tabs */}

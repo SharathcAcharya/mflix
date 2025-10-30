@@ -1,7 +1,7 @@
-# 🚀 MFlix Advanced Features Documentation
+# 🚀 ScreenPlex Advanced Features Documentation
 
 ## Overview
-This document describes the advanced production-grade features implemented in MFlix beyond basic CRUD operations.
+This document describes the advanced production-grade features implemented in ScreenPlex beyond basic CRUD operations.
 
 ---
 

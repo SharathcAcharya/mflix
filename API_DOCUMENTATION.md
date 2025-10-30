@@ -1,4 +1,4 @@
-# 📡 MFlix API Documentation
+# 📡 ScreenPlex API Documentation
 
 ## Base URL
 ```
@@ -850,7 +850,7 @@ Import this collection for testing:
 ```json
 {
   "info": {
-    "name": "MFlix API",
+    "name": "ScreenPlex API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [

@@ -76,7 +76,7 @@ app.use('/api/admin', adminRoutes);
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
-    message: 'MFlix API is running',
+    message: 'ScreenPlex API is running',
     timestamp: new Date().toISOString()
   });
 });

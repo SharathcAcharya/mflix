@@ -43,7 +43,7 @@ npm start
 ## 🔑 Getting Google OAuth Credentials
 
 1. Visit [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project "MFlix"
+2. Create a new project "ScreenPlex"
 3. Go to "APIs & Services" → "Credentials"
 4. Create "OAuth 2.0 Client ID"
 5. Add authorized JavaScript origins: `http://localhost:3000`

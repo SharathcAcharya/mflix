@@ -1,8 +1,8 @@
-# 🎬 MFlix - Netflix Clone with Google Authentication
+# 🎬 ScreenPlex - Netflix Clone with Google Authentication
 
 A full-stack Netflix clone built with React, Node.js, Express, MongoDB, and Google OAuth 2.0 authentication.
 
-![MFlix](https://img.shields.io/badge/MFlix-Netflix%20Clone-red)
+![ScreenPlex](https://img.shields.io/badge/ScreenPlex-Netflix%20Clone-red)
 ![React](https://img.shields.io/badge/React-19.2.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-Express-green)
 ![MongoDB](https://img.shields.io/badge/MongoDB-sample__mflix-brightgreen)
@@ -67,13 +67,13 @@ Before you begin, ensure you have:
 
 ```bash
 git clone <repository-url>
-cd mflix
+cd screenplex
 ```
 
 ### 2. Google Cloud Console Setup
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project named "MFlix"
+2. Create a new project named "ScreenPlex"
 3. Enable **Google+ API**
 4. Navigate to **Credentials** → **Create Credentials** → **OAuth 2.0 Client ID**
 5. Configure OAuth consent screen
@@ -140,7 +140,7 @@ Backend will run on `http://localhost:5000`
 ## 📁 Project Structure
 
 ```
-mflix/
+screenplex/
 ├── public/                 # Static files
 ├── src/
 │   ├── components/

@@ -84,14 +84,14 @@ const Signup = () => {
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 md:px-16 py-6">
         <Link to="/" className="text-netflix-red text-4xl md:text-5xl font-black tracking-tight hover:scale-105 transition-transform">
-          MFLIX
+          SCREENPLEX
         </Link>
       </header>
       
       {/* Signup Card */}
       <div className="relative z-10 bg-black/70 backdrop-blur-xl p-8 md:p-12 rounded-2xl w-full max-w-md border border-gray-800 shadow-2xl mt-16">
         <h2 className="text-4xl font-bold text-white mb-2">Create Account</h2>
-        <p className="text-gray-400 mb-8">Join MFlix today and start streaming</p>
+        <p className="text-gray-400 mb-8">Join ScreenPlex today and start streaming</p>
         
         {error && (
           <div className="bg-red-500/20 border border-red-500 text-red-400 p-4 rounded-lg mb-6 flex items-center space-x-3">

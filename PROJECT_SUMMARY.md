@@ -1,4 +1,4 @@
-# 🎯 MFlix Project - Implementation Summary
+# 🎯 ScreenPlex Project - Implementation Summary
 
 ## ✅ Completed Features
 

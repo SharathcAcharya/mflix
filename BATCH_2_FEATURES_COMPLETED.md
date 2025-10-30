@@ -422,7 +422,7 @@ Progress:
 
 ## 🎉 Conclusion
 
-Your MFlix app is now **85% feature-complete** compared to Netflix! 
+Your ScreenPlex app is now **85% feature-complete** compared to Netflix! 
 
 The app includes:
 - 🎬 Professional video player

@@ -1,8 +1,8 @@
-# 🎬 MFlix Netflix Clone - Complete Implementation
+# 🎬 ScreenPlex Netflix Clone - Complete Implementation
 
 ## 🎉 Project Successfully Created!
 
-Your MFlix Netflix Clone with Google Authentication has been successfully set up with all the necessary files and configurations.
+Your ScreenPlex Netflix Clone with Google Authentication has been successfully set up with all the necessary files and configurations.
 
 ---
 
@@ -90,7 +90,7 @@ npm install
 
 ### 2. Setup Google OAuth
 1. Visit [Google Cloud Console](https://console.cloud.google.com/)
-2. Create project "MFlix"
+2. Create project "ScreenPlex"
 3. Enable Google+ API
 4. Create OAuth 2.0 credentials
 5. Add origins: `http://localhost:3000`
@@ -286,7 +286,7 @@ npm run build
 
 ## 🎬 You're All Set!
 
-Your MFlix Netflix Clone is ready to launch! 
+Your ScreenPlex Netflix Clone is ready to launch! 
 
 **Next Steps:**
 1. Follow the setup instructions above
