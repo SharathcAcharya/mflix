@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -18,8 +18,8 @@ const ManageProfiles = () => {
     ageRestriction: 'Adult'
   });
 
-  // Netflix-style avatar options
-  const avatarOptions = [
+  // Netflix-style avatar options - memoized to prevent recreation on every render
+  const avatarOptions = useMemo(() => [
     { id: 1, url: 'https://i.pravatar.cc/150?img=1', color: '#E50914' },
     { id: 2, url: 'https://i.pravatar.cc/150?img=2', color: '#564d4d' },
     { id: 3, url: 'https://i.pravatar.cc/150?img=3', color: '#0080ff' },
@@ -40,7 +40,7 @@ const ManageProfiles = () => {
     { id: 18, url: 'https://i.pravatar.cc/150?img=24', color: '#f44336' },
     { id: 19, url: 'https://i.pravatar.cc/150?img=26', color: '#2196f3' },
     { id: 20, url: 'https://i.pravatar.cc/150?img=28', color: '#9c27b0' },
-  ];
+  ], []);
 
   const fetchProfiles = useCallback(async () => {
     try {
