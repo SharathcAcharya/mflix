@@ -58,8 +58,30 @@ const Navbar = () => {
     }`}>
       <div className="flex items-center justify-between px-4 md:px-8 py-3 md:py-4">
         <div className="flex items-center space-x-4 md:space-x-8">
-          <Link to="/browse" className="text-netflix-red text-2xl md:text-3xl font-bold hover:scale-105 transition">
-            SCREENPLEX
+          {/* Enhanced Logo with 3D effect */}
+          <Link to="/browse" className="flex items-center space-x-2 group">
+            <div className="relative">
+              {/* Play button icon */}
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-netflix-red via-red-600 to-red-900 rounded-lg flex items-center justify-center shadow-2xl transform group-hover:rotate-12 transition-all duration-300 border-2 border-red-400/30">
+                <svg className="w-4 h-4 md:w-5 md:h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-netflix-red rounded-lg blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              </div>
+              {/* Floating particles around logo */}
+              <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-ping"></div>
+              <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-red-400 rounded-full animate-pulse"></div>
+            </div>
+            
+            <div className="flex flex-col">
+              <span className="text-xl md:text-2xl font-black bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-2xl tracking-tight group-hover:tracking-wide transition-all duration-300">
+                SCREEN<span className="text-netflix-red">PLEX</span>
+              </span>
+              <span className="text-[7px] md:text-[9px] font-semibold text-gray-400 tracking-widest uppercase -mt-0.5">
+                Premium Streaming
+              </span>
+            </div>
           </Link>
           
           <div className="hidden lg:flex space-x-6">
@@ -152,6 +174,9 @@ const Navbar = () => {
                   
                   <Link to="/profiles" className="block px-4 py-2.5 text-white hover:bg-gray-800 transition text-sm" onClick={() => setShowUserMenu(false)}>
                     <span className="mr-2">🔄</span> Switch Profile
+                  </Link>
+                  <Link to="/manage-profiles" className="block px-4 py-2.5 text-white hover:bg-gray-800 transition text-sm" onClick={() => setShowUserMenu(false)}>
+                    <span className="mr-2">👥</span> Manage Profiles
                   </Link>
                   <Link to="/account" className="block px-4 py-2.5 text-white hover:bg-gray-800 transition text-sm" onClick={() => setShowUserMenu(false)}>
                     <span className="mr-2">⚙️</span> Account

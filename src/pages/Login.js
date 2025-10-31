@@ -59,8 +59,30 @@ const Login = () => {
 
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 md:px-16 py-6">
-        <Link to="/" className="text-netflix-red text-4xl md:text-5xl font-black tracking-tight hover:scale-105 transition-transform">
-          SCREENPLEX
+        {/* Enhanced Logo with 3D effect */}
+        <Link to="/" className="flex items-center space-x-2 md:space-x-3 group">
+          <div className="relative">
+            {/* Play button icon */}
+            <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-netflix-red via-red-600 to-red-900 rounded-lg md:rounded-xl flex items-center justify-center shadow-2xl transform group-hover:rotate-12 transition-all duration-300 border-2 border-red-400/30">
+              <svg className="w-5 h-5 md:w-7 md:h-7 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-netflix-red rounded-lg md:rounded-xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            </div>
+            {/* Floating particles around logo */}
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse"></div>
+          </div>
+          
+          <div className="flex flex-col">
+            <span className="text-2xl md:text-4xl font-black bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-2xl tracking-tight group-hover:tracking-wide transition-all duration-300">
+              SCREEN<span className="text-netflix-red">PLEX</span>
+            </span>
+            <span className="text-[8px] md:text-xs font-semibold text-gray-400 tracking-widest uppercase -mt-1">
+              Premium Streaming
+            </span>
+          </div>
         </Link>
       </header>
       

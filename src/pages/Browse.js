@@ -5,6 +5,7 @@ import Navbar from '../components/common/Navbar';
 import ContinueWatchingRow from '../components/ContinueWatchingRow';
 import Top10Row from '../components/Top10Row';
 import RecentlyAddedRow from '../components/RecentlyAddedRow';
+import SkeletonLoader from '../components/SkeletonLoader';
 
 const Browse = () => {
   const navigate = useNavigate();
@@ -97,8 +98,44 @@ const Browse = () => {
     return (
       <div className="min-h-screen bg-black">
         <Navbar />
-        <div className="flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-netflix-red"></div>
+        
+        {/* Hero Skeleton */}
+        <div className="relative h-screen">
+          <div className="absolute top-0 left-0 w-full h-full bg-gray-900">
+            <div className="absolute bottom-32 left-8 md:left-16 max-w-2xl space-y-4">
+              <div className="h-16 bg-gray-800 rounded w-3/4 animate-pulse"></div>
+              <div className="space-y-2">
+                <div className="h-4 bg-gray-800 rounded w-full animate-pulse"></div>
+                <div className="h-4 bg-gray-800 rounded w-5/6 animate-pulse"></div>
+                <div className="h-4 bg-gray-800 rounded w-4/6 animate-pulse"></div>
+              </div>
+              <div className="flex space-x-4">
+                <div className="h-12 bg-gray-800 rounded w-32 animate-pulse"></div>
+                <div className="h-12 bg-gray-800 rounded w-32 animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Sections Skeleton */}
+        <div className="px-8 md:px-16 py-8 space-y-12">
+          {/* Continue Watching Skeleton */}
+          <div>
+            <div className="h-6 bg-gray-800 rounded w-48 mb-4 animate-pulse"></div>
+            <SkeletonLoader variant="continueWatching" count={6} />
+          </div>
+
+          {/* Top 10 Skeleton */}
+          <div>
+            <div className="h-6 bg-gray-800 rounded w-32 mb-4 animate-pulse"></div>
+            <SkeletonLoader variant="movieGrid" count={10} />
+          </div>
+
+          {/* Popular Movies Skeleton */}
+          <div>
+            <div className="h-6 bg-gray-800 rounded w-40 mb-4 animate-pulse"></div>
+            <SkeletonLoader variant="movieGrid" count={20} />
+          </div>
         </div>
       </div>
     );

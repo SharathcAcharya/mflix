@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
+import SkeletonLoader from '../components/SkeletonLoader';
 import api from '../utils/api';
 
 const GenreBrowse = () => {
@@ -78,8 +79,18 @@ const GenreBrowse = () => {
     return (
       <div className="min-h-screen bg-black">
         <Navbar />
-        <div className="flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-netflix-red"></div>
+        <div className="px-8 md:px-16 py-8">
+          {/* Header Skeleton */}
+          <div className="mb-8">
+            <div className="h-10 bg-gray-800 rounded w-64 mb-6 animate-pulse"></div>
+            <div className="flex items-center justify-between mb-6">
+              <div className="h-8 bg-gray-800 rounded w-48 animate-pulse"></div>
+              <div className="h-10 bg-gray-800 rounded w-40 animate-pulse"></div>
+            </div>
+          </div>
+          
+          {/* Movies Grid Skeleton */}
+          <SkeletonLoader variant="movieGrid" count={20} />
         </div>
       </div>
     );

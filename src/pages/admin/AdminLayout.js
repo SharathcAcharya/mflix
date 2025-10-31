@@ -78,14 +78,32 @@ const AdminLayout = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex">
-              {/* Logo */}
+              {/* Enhanced Logo with 3D effect */}
               <div className="flex-shrink-0 flex items-center">
-                <div className="bg-blue-600 p-2 rounded-lg">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                <div className="flex items-center space-x-2 group">
+                  <div className="relative">
+                    {/* Play button icon */}
+                    <div className="w-9 h-9 bg-gradient-to-br from-netflix-red via-red-600 to-red-900 rounded-lg flex items-center justify-center shadow-2xl transform group-hover:rotate-12 transition-all duration-300 border-2 border-red-400/30">
+                      <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 bg-netflix-red rounded-lg blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                    </div>
+                    {/* Floating particles around logo */}
+                    <div className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-yellow-400 rounded-full animate-ping"></div>
+                    <div className="absolute -bottom-1 -left-1 w-1 h-1 bg-red-400 rounded-full animate-pulse"></div>
+                  </div>
+                  
+                  <div className="flex flex-col">
+                    <span className="text-lg font-black bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-2xl tracking-tight group-hover:tracking-wide transition-all duration-300">
+                      SCREEN<span className="text-netflix-red">PLEX</span>
+                    </span>
+                    <span className="text-[8px] font-semibold text-blue-400 tracking-widest uppercase -mt-0.5">
+                      Admin Panel
+                    </span>
+                  </div>
                 </div>
-                <span className="ml-3 text-xl font-bold text-white">ScreenPlex Admin</span>
               </div>
 
               {/* Menu Items */}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
 
 const ProfileSelection = () => {
@@ -100,9 +100,32 @@ const ProfileSelection = () => {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-4 md:p-8">
-      {/* Logo */}
+      {/* Enhanced Logo with 3D effect */}
       <div className="absolute top-8 left-8">
-        <h1 className="text-netflix-red text-3xl md:text-4xl font-bold">SCREENPLEX</h1>
+        <Link to="/" className="flex items-center space-x-2 md:space-x-3 group">
+          <div className="relative">
+            {/* Play button icon */}
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-netflix-red via-red-600 to-red-900 rounded-lg md:rounded-xl flex items-center justify-center shadow-2xl transform group-hover:rotate-12 transition-all duration-300 border-2 border-red-400/30">
+              <svg className="w-5 h-5 md:w-6 md:h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-netflix-red rounded-lg md:rounded-xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            </div>
+            {/* Floating particles around logo */}
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+            <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse"></div>
+          </div>
+          
+          <div className="flex flex-col">
+            <span className="text-xl md:text-3xl font-black bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent drop-shadow-2xl tracking-tight group-hover:tracking-wide transition-all duration-300">
+              SCREEN<span className="text-netflix-red">PLEX</span>
+            </span>
+            <span className="text-[7px] md:text-[10px] font-semibold text-gray-400 tracking-widest uppercase -mt-0.5">
+              Premium Streaming
+            </span>
+          </div>
+        </Link>
       </div>
 
       <div className="max-w-6xl w-full">
@@ -129,6 +152,18 @@ const ProfileSelection = () => {
                       KIDS
                     </div>
                   )}
+
+                  {/* Edit Button */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      navigate('/manage-profiles');
+                    }}
+                    className="absolute -top-2 -right-2 bg-white text-black rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-gray-200"
+                    title="Edit Profile"
+                  >
+                    ✏️
+                  </button>
 
                   {/* Delete Button */}
                   <button

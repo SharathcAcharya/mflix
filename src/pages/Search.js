@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
+import SkeletonLoader from '../components/SkeletonLoader';
 import api from '../utils/api';
 
 const Search = () => {
@@ -81,8 +82,8 @@ const Search = () => {
           </h1>
 
           {loading ? (
-            <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-netflix-red"></div>
+            <div>
+              <SkeletonLoader variant="movieGrid" count={12} />
             </div>
           ) : results.length === 0 ? (
             <div className="text-center py-20">

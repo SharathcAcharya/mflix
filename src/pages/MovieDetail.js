@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import VideoPlayer from '../components/VideoPlayer';
+import SkeletonLoader from '../components/SkeletonLoader';
 import api from '../utils/api';
 // import ReactPlayer from 'react-player';
 
@@ -174,8 +175,15 @@ const MovieDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-netflix-red"></div>
+      <div className="min-h-screen bg-black">
+        <Navbar />
+        <SkeletonLoader variant="detailHero" />
+        
+        {/* Similar Movies Skeleton */}
+        <div className="px-8 md:px-16 py-8">
+          <div className="h-6 bg-gray-800 rounded w-48 mb-4 animate-pulse"></div>
+          <SkeletonLoader variant="movieGrid" count={6} />
+        </div>
       </div>
     );
   }

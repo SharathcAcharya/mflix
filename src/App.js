@@ -15,6 +15,8 @@ import SeriesDetail from './pages/SeriesDetail';
 import Recommendations from './pages/Recommendations';
 import GenreBrowse from './pages/GenreBrowse';
 import Search from './pages/Search';
+import MyList from './pages/MyList';
+import ManageProfiles from './pages/ManageProfiles';
 import Account from './pages/Account';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminLayout from './pages/admin/AdminLayout';
@@ -97,6 +99,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Search />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/my-list" 
+              element={
+                <ProtectedRoute>
+                  <MyList />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/manage-profiles" 
+              element={
+                <ProtectedRoute>
+                  <ManageProfiles />
                 </ProtectedRoute>
               } 
             />
