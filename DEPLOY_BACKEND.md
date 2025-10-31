@@ -4,6 +4,22 @@
 
 ### 1. Prepare Your Backend for Deployment
 
+#### **IMPORTANT: Configure MongoDB Atlas Network Access**
+
+Before deploying, you must whitelist Render.com's IP addresses in MongoDB Atlas:
+
+1. Go to https://cloud.mongodb.com
+2. Select your cluster → Click **"Network Access"** in the left sidebar
+3. Click **"+ ADD IP ADDRESS"**
+4. Choose one option:
+   - **Option A (Easiest)**: Click **"ALLOW ACCESS FROM ANYWHERE"** → Add `0.0.0.0/0`
+   - **Option B (More Secure)**: Add your deployment platform's IP ranges
+5. Click **"Confirm"** and wait 1-2 minutes for changes to apply
+
+⚠️ **Without this step, your backend will fail to connect to MongoDB!**
+
+---
+
 #### Add start script to `server/package.json`
 Make sure your `server/package.json` has:
 ```json
@@ -139,3 +155,54 @@ const allowedOrigins = [
 **Solution**: Deploy backend to Render.com/Railway, then update `REACT_APP_API_URL` in Netlify
 
 **Result**: Both frontend and backend will be accessible from the internet! 🚀
+
+---
+
+## Troubleshooting
+
+### MongoDB Connection Error: "IP that isn't whitelisted"
+
+**Error**: `Could not connect to any servers in your MongoDB Atlas cluster`
+
+**Solution**:
+1. Go to MongoDB Atlas → Network Access
+2. Add `0.0.0.0/0` to allow access from anywhere
+3. Wait 1-2 minutes for changes to propagate
+4. Restart your Render service (Settings → Manual Deploy → Deploy latest commit)
+
+### CORS Errors After Deployment
+
+**Error**: `Access to XMLHttpRequest blocked by CORS policy`
+
+**Solution**:
+1. Make sure your backend's `FRONTEND_URL` env var is set to your Netlify URL
+2. Verify `server/server.js` includes your Netlify URL in `allowedOrigins`
+3. Redeploy backend after changes
+
+### Environment Variables Not Working
+
+**Solution**:
+1. Check that all env vars are set in Render dashboard
+2. Don't include quotes around values in Render
+3. After changing env vars, redeploy the service
+
+### Backend URL Not Working
+
+**Error**: `ERR_CONNECTION_REFUSED` or `404 Not Found`
+
+**Solution**:
+1. Check Render dashboard - service should show "Live" status
+2. Test backend directly: `https://your-app.onrender.com/api/health`
+3. Make sure you're using HTTPS (not HTTP) in your Netlify env vars
+
+---
+
+## Current Status
+
+After following this guide:
+- ✅ Backend CORS configured for Netlify
+- ✅ Deployment guide created
+- ❌ **Backend needs to be deployed** (follow steps above)
+- ❌ **MongoDB Atlas needs IP whitelist updated** (critical!)
+- ❌ **Netlify env vars need backend URL** (after deployment)
+
