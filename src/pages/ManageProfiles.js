@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import api from '../utils/api';
 
 const ManageProfiles = () => {
   const navigate = useNavigate();
@@ -43,11 +42,7 @@ const ManageProfiles = () => {
     { id: 20, url: 'https://i.pravatar.cc/150?img=28', color: '#9c27b0' },
   ];
 
-  useEffect(() => {
-    fetchProfiles();
-  }, []);
-
-  const fetchProfiles = async () => {
+  const fetchProfiles = useCallback(async () => {
     try {
       setLoading(true);
       // For now, we'll use the user's existing profiles or create a mock structure
@@ -67,7 +62,11 @@ const ManageProfiles = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [avatarOptions, user?.name]);
+
+  useEffect(() => {
+    fetchProfiles();
+  }, [fetchProfiles]);
 
   const handleCreateProfile = () => {
     if (profiles.length >= 5) {

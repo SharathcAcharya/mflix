@@ -11,7 +11,6 @@ const Home = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeFeature, setActiveFeature] = useState(0);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -30,16 +29,6 @@ const Home = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Scroll-based effects
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Auto-rotate features
   useEffect(() => {
     const interval = setInterval(() => {
@@ -51,7 +40,7 @@ const Home = () => {
   // Auto-rotate trending movies
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentMovieIndex((prev) => (prev + 1) % trendingMovies.length);
+      setCurrentMovieIndex((prev) => (prev + 1) % 4); // Fixed to 4 movies
     }, 7000);
     return () => clearInterval(interval);
   }, []);

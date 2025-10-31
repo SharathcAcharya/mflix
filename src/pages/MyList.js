@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import SkeletonLoader from '../components/SkeletonLoader';
@@ -14,11 +14,7 @@ const MyList = () => {
   });
   const [removingId, setRemovingId] = useState(null);
 
-  useEffect(() => {
-    fetchWatchlist();
-  }, []);
-
-  const fetchWatchlist = async () => {
+  const fetchWatchlist = useCallback(async () => {
     try {
       setLoading(true);
       const response = await api.get('/users/watchlist');
@@ -31,7 +27,11 @@ const MyList = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate]);
+
+  useEffect(() => {
+    fetchWatchlist();
+  }, [fetchWatchlist]);
 
   const removeFromWatchlist = async (movieId) => {
     try {
