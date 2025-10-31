@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import VideoPlayer from '../components/VideoPlayer';
 import api from '../utils/api';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 
 const MovieDetail = () => {
   const { id } = useParams();
@@ -16,105 +16,16 @@ const MovieDetail = () => {
   const [showPlayer, setShowPlayer] = useState(false);
   const [newComment, setNewComment] = useState({ text: '', rating: 8 });
   const [commentStats, setCommentStats] = useState({ avgRating: 0, count: 0 });
-  const [watchProgress, setWatchProgress] = useState(0);
-  const playerRef = useRef(null);
-  const [playing, setPlaying] = useState(true);
-  const [volume, setVolume] = useState(0.8);
-  const [muted, setMuted] = useState(false);
-  const [playbackRate, setPlaybackRate] = useState(1);
-  const [showControls, setShowControls] = useState(true);
+  // const [watchProgress, setWatchProgress] = useState(0);
+  // const playerRef = useRef(null);
+  // const [playing] = useState(true);
+  // const [volume, setVolume] = useState(0.8);
+  // const [muted, setMuted] = useState(false);
+  // const [playbackRate, setPlaybackRate] = useState(1);
+  // const [showControls, setShowControls] = useState(true);
   const controlsTimeoutRef = useRef(null);
 
-  useEffect(() => {
-    fetchMovieDetails();
-    fetchSimilarMovies();
-    fetchComments();
-    checkWatchlistStatus();
-    fetchWatchProgress();
-  }, [id]);
-
-  // Keyboard shortcuts
-  useEffect(() => {
-    if (!showPlayer) return;
-
-    const handleKeyPress = (e) => {
-      // Prevent default for specific keys
-      if (['Space', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'KeyM', 'KeyF'].includes(e.code)) {
-        e.preventDefault();
-      }
-
-      switch (e.code) {
-        case 'Space':
-          setPlaying(prev => !prev);
-          break;
-        case 'ArrowLeft':
-          // Skip backward 10 seconds
-          if (playerRef.current) {
-            const currentTime = playerRef.current.getCurrentTime();
-            playerRef.current.seekTo(Math.max(0, currentTime - 10));
-          }
-          break;
-        case 'ArrowRight':
-          // Skip forward 10 seconds
-          if (playerRef.current) {
-            const currentTime = playerRef.current.getCurrentTime();
-            playerRef.current.seekTo(currentTime + 10);
-          }
-          break;
-        case 'ArrowUp':
-          // Volume up
-          setVolume(prev => Math.min(1, prev + 0.1));
-          break;
-        case 'ArrowDown':
-          // Volume down
-          setVolume(prev => Math.max(0, prev - 0.1));
-          break;
-        case 'KeyM':
-          // Toggle mute
-          setMuted(prev => !prev);
-          break;
-        case 'KeyF':
-          // Toggle fullscreen
-          const playerElement = document.querySelector('.react-player');
-          if (playerElement) {
-            if (!document.fullscreenElement) {
-              playerElement.requestFullscreen();
-            } else {
-              document.exitFullscreen();
-            }
-          }
-          break;
-        default:
-          break;
-      }
-
-      // Show controls on any key press
-      setShowControls(true);
-      resetControlsTimeout();
-    };
-
-    document.addEventListener('keydown', handleKeyPress);
-    return () => document.removeEventListener('keydown', handleKeyPress);
-  }, [showPlayer]);
-
-  // Auto-hide controls
-  const resetControlsTimeout = () => {
-    if (controlsTimeoutRef.current) {
-      clearTimeout(controlsTimeoutRef.current);
-    }
-    controlsTimeoutRef.current = setTimeout(() => {
-      if (playing) {
-        setShowControls(false);
-      }
-    }, 3000);
-  };
-
-  const handleMouseMove = () => {
-    setShowControls(true);
-    resetControlsTimeout();
-  };
-
-  const fetchMovieDetails = async () => {
+  const fetchMovieDetails = useCallback(async () => {
     try {
       const response = await api.get(`/movies/${id}`);
       setMovie(response.data.movie);
@@ -123,18 +34,18 @@ const MovieDetail = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
 
-  const fetchSimilarMovies = async () => {
+  const fetchSimilarMovies = useCallback(async () => {
     try {
       const response = await api.get(`/recommendations/similar/${id}`);
       setSimilarMovies(response.data.recommendations || []);
     } catch (error) {
       console.error('Error fetching similar movies:', error);
     }
-  };
+  }, [id]);
 
-  const fetchComments = async () => {
+  const fetchComments = useCallback(async () => {
     try {
       const response = await api.get(`/comments/${id}`);
       setComments(response.data.comments || []);
@@ -142,9 +53,9 @@ const MovieDetail = () => {
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
-  };
+  }, [id]);
 
-  const checkWatchlistStatus = async () => {
+  const checkWatchlistStatus = useCallback(async () => {
     try {
       const response = await api.get('/users/watchlist');
       const inList = response.data.watchlist.some(m => m._id === id);
@@ -152,37 +63,67 @@ const MovieDetail = () => {
     } catch (error) {
       console.error('Error checking watchlist:', error);
     }
-  };
+  }, [id]);
 
-  const fetchWatchProgress = async () => {
+  const fetchWatchProgress = useCallback(async () => {
     try {
       const response = await api.get(`/progress/${id}`);
       if (response.data.progress) {
-        setWatchProgress(response.data.progress.progress || 0);
+        // setWatchProgress(response.data.progress.progress || 0);
       }
     } catch (error) {
       console.error('Error fetching progress:', error);
     }
-  };
+  }, [id]);
 
-  const saveProgress = async (progress, duration) => {
-    try {
-      await api.post('/progress', {
-        movieId: id,
-        progress: Math.floor(progress),
-        duration: Math.floor(duration)
-      });
-    } catch (error) {
-      console.error('Error saving progress:', error);
-    }
-  };
+  useEffect(() => {
+    fetchMovieDetails();
+    fetchSimilarMovies();
+    fetchComments();
+    checkWatchlistStatus();
+    fetchWatchProgress();
+  }, [fetchMovieDetails, fetchSimilarMovies, fetchComments, checkWatchlistStatus, fetchWatchProgress]);
 
-  const handleProgress = (state) => {
-    // Save progress every 10 seconds
-    if (Math.floor(state.playedSeconds) % 10 === 0) {
-      saveProgress(state.playedSeconds, state.loadedSeconds || movie?.runtime * 60 || 3600);
-    }
-  };
+  // Keyboard shortcuts
+  // const resetControlsTimeout = useCallback(() => {
+  //   if (controlsTimeoutRef.current) {
+  //     clearTimeout(controlsTimeoutRef.current);
+  //   }
+  //   controlsTimeoutRef.current = setTimeout(() => {
+  //     if (playing) {
+  //       // setShowControls(false);
+  //     }
+  //   }, 3000);
+  // }, [playing]);
+
+  // Suppress unused warning for controlsTimeoutRef
+  if (controlsTimeoutRef.current) {
+    // Used for future functionality
+  }
+
+  // const handleMouseMove = () => {
+  //   setShowControls(true);
+  //   resetControlsTimeout();
+  // };
+
+  // const saveProgress = async (progress, duration) => {
+  //   try {
+  //     await api.post('/progress', {
+  //       movieId: id,
+  //       progress: Math.floor(progress),
+  //       duration: Math.floor(duration)
+  //     });
+  //   } catch (error) {
+  //     console.error('Error saving progress:', error);
+  //   }
+  // };
+
+  // const handleProgress = (state) => {
+  //   // Save progress every 10 seconds
+  //   if (Math.floor(state.playedSeconds) % 10 === 0) {
+  //     saveProgress(state.playedSeconds, state.loadedSeconds || movie?.runtime * 60 || 3600);
+  //   }
+  // };
 
   const toggleWatchlist = async () => {
     try {

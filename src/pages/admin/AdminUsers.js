@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AdminUsers = () => {
@@ -11,11 +11,7 @@ const AdminUsers = () => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const adminToken = localStorage.getItem('adminToken');
 
-  useEffect(() => {
-    fetchUsers();
-  }, [page, searchTerm]);
-
-  const fetchUsers = async () => {
+  const fetchUsers = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axios.get(`http://localhost:5000/api/admin/users`, {
@@ -29,7 +25,11 @@ const AdminUsers = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [page, searchTerm, adminToken]);
+
+  useEffect(() => {
+    fetchUsers();
+  }, [fetchUsers]);
 
   const handleDeleteUser = async (userId) => {
     if (!window.confirm('Are you sure you want to delete this user? This will also delete all their profiles and watch progress.')) {

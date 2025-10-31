@@ -1,15 +1,15 @@
-import React from 'react';
-import { GoogleLogin } from '@react-oauth/google';
-import api from '../../utils/api';
-import { useAuth } from '../../context/AuthContext';
+// import React from 'react';
+// import { GoogleLogin } from '@react-oauth/google';
+// import api from '../../utils/api';
+// import { useAuth } from '../../context/AuthContext';
 
 const GoogleLoginButton = ({ onSuccess, onError }) => {
-  const { login } = useAuth();
+  // const { login } = useAuth();
 
   // Google OAuth is disabled for now - requires proper Google Cloud Console setup
   // with authorized origins configured
-  return null;
-
+  
+  /* Commented out to avoid unreachable code errors
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const response = await api.post('/auth/google', {
@@ -57,6 +57,9 @@ const GoogleLoginButton = ({ onSuccess, onError }) => {
       />
     </div>
   );
+  */
+  
+  return null;
 };
 
 export default GoogleLoginButton;

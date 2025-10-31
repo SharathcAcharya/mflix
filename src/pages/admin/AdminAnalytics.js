@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AdminAnalytics = () => {
@@ -6,11 +6,7 @@ const AdminAnalytics = () => {
   const [loading, setLoading] = useState(true);
   const adminToken = localStorage.getItem('adminToken');
 
-  useEffect(() => {
-    fetchAnalytics();
-  }, []);
-
-  const fetchAnalytics = async () => {
+  const fetchAnalytics = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/admin/analytics', {
         headers: { Authorization: `Bearer ${adminToken}` }
@@ -21,7 +17,11 @@ const AdminAnalytics = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [adminToken]);
+
+  useEffect(() => {
+    fetchAnalytics();
+  }, [fetchAnalytics]);
 
   if (loading) {
     return (

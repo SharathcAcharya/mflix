@@ -5,7 +5,7 @@ import Navbar from '../components/common/Navbar';
 import api from '../utils/api';
 
 const Account = () => {
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
   const [profiles, setProfiles] = useState([]);

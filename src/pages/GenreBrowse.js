@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import api from '../utils/api';
@@ -17,11 +17,7 @@ const GenreBrowse = () => {
     'Thriller', 'War', 'Western'
   ];
 
-  useEffect(() => {
-    fetchMoviesByGenre();
-  }, [genre, sortBy]);
-
-  const fetchMoviesByGenre = async () => {
+  const fetchMoviesByGenre = useCallback(async () => {
     try {
       setLoading(true);
       const response = await api.get(`/movies/genre/${genre}`, {
@@ -33,7 +29,11 @@ const GenreBrowse = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [genre, sortBy]);
+
+  useEffect(() => {
+    fetchMoviesByGenre();
+  }, [fetchMoviesByGenre]);
 
   const MovieCard = ({ movie }) => (
     <div

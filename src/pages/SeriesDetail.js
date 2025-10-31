@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useParams } from 'react-router-dom';
 import Navbar from '../components/common/Navbar';
 import VideoPlayer from '../components/VideoPlayer';
 import api from '../utils/api';
 
 const SeriesDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [series, setSeries] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedSeason, setSelectedSeason] = useState(0);
   const [selectedEpisode, setSelectedEpisode] = useState(null);
   const [showPlayer, setShowPlayer] = useState(false);
 
-  useEffect(() => {
-    fetchSeriesDetails();
-  }, [id]);
-
-  const fetchSeriesDetails = async () => {
+  const fetchSeriesDetails = useCallback(async () => {
     try {
       const response = await api.get(`/series/${id}`);
       setSeries(response.data.series);
@@ -26,7 +22,11 @@ const SeriesDetail = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchSeriesDetails();
+  }, [fetchSeriesDetails]);
 
   const handlePlayEpisode = (episode) => {
     if (!episode.streamingUrl) {

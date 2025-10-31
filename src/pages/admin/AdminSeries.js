@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AdminSeries = () => {
@@ -43,11 +43,7 @@ const AdminSeries = () => {
     thumbnail: ''
   });
 
-  useEffect(() => {
-    fetchSeries();
-  }, [page, searchTerm]);
-
-  const fetchSeries = async () => {
+  const fetchSeries = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axios.get(`http://localhost:5000/api/admin/series`, {
@@ -61,7 +57,11 @@ const AdminSeries = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [page, searchTerm, adminToken]);
+
+  useEffect(() => {
+    fetchSeries();
+  }, [fetchSeries]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
